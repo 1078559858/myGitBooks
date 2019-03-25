@@ -6,6 +6,8 @@
 >
 > gitbook init
 >
+> gitbook build  ./ book     //不要用git build，github page 不识别下滑线。除非把根目录的.nojekyll放入下滑线目录，不过麻烦。 win7创建命令：type nul> .nojekyll
+>
 > gitbook serve --port 8888
 
 plugins
