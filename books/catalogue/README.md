@@ -6,6 +6,8 @@
 
 * [正则](../../regexp/book/index.html)
 
+* html块级样式和内联样式 <http://www.cnblogs.com/dehuachenyunfei/p/6522991.html>
+
   问题，github目录：es6、gitbook提交蓝色问号，不成功。
 
   问题：expand-collapse-popup-window.js    报错404
