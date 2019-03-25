@@ -1,3 +1,5 @@
 # 忽略所有_book文件夹
-*_book
+# *_book
+# 不忽略当前_book文件夹
+# !/_book
 *node_modules
