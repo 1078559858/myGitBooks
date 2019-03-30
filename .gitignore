@@ -4,4 +4,4 @@
 # !/_book
 *node_modules
 # *build.bat
-*/book/build.bat
+book/build.bat
