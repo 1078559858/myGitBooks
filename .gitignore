@@ -3,5 +3,9 @@
 # 不忽略当前_book文件夹
 # !/_book
 *node_modules
-# *build.bat
-book/build.bat
+*build.bat
+# 那不忽略 /a/b.java 应该这样写：为了同步 Intellij IDEA 的配置文件。
+#  /*
+# !/a
+# /a/*
+# !/a/b.java
