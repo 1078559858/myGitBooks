@@ -3,4 +3,5 @@
 # 不忽略当前_book文件夹
 # !/_book
 *node_modules
-*build.bat
+# *build.bat
+*/book/build.bat
