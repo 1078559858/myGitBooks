@@ -1,9 +1,5 @@
 # Summary
 
-* [前言](README.md)
-* [第一章](first/README.md)
-    * [init](first/init.md)
-    * [using](first/using.md)
-* [第二章](second/README.md)
-    * [other](second/other.md)
+* [home](https://1078559858.github.io/myGitBooks/)
+* [gitbook的使用](README.md)
 
