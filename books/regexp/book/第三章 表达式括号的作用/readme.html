@@ -1,0 +1,390 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.表达式括号的作用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expand-collapse-popup-window/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../第四章 回溯法原理/readme.html" />
+    
+    
+    <link rel="prev" href="../第二章 位置匹配/readme.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="https://1078559858.github.io/myGitBooks">
+            
+                    
+                    home page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章出处
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../第一章 字符匹配/readme.html">
+            
+                <a href="../第一章 字符匹配/readme.html">
+            
+                    
+                    1. 字符匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../第二章 位置匹配/readme.html">
+            
+                <a href="../第二章 位置匹配/readme.html">
+            
+                    
+                    2. 位置匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    3.表达式括号的作用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../第四章 回溯法原理/readme.html">
+            
+                <a href="../第四章 回溯法原理/readme.html">
+            
+                    
+                    4. 回溯法原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../第五章 拆分/readme.html">
+            
+                <a href="../第五章 拆分/readme.html">
+            
+                    
+                    5. 拆分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../第六章 构建/readme.html">
+            
+                <a href="../第六章 构建/readme.html">
+            
+                    
+                    6. 构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../第七章 正则编程/readme.html">
+            
+                <a href="../第七章 正则编程/readme.html">
+            
+                    
+                    7. 正则编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../个人总结/">
+            
+                <a href="../个人总结/">
+            
+                    
+                    个人总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.表达式括号的作用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8868;&#x8FBE;&#x5F0F;&#x62EC;&#x53F7;&#x7684;&#x4F5C;&#x7528;">&#x8868;&#x8FBE;&#x5F0F;&#x62EC;&#x53F7;&#x7684;&#x4F5C;&#x7528;</h1>
+<h1 id="&#x7591;&#x95EE;">&#x7591;&#x95EE;</h1>
+<ol>
+<li><blockquote>
+<p>5.2 &#x5C06;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;</p>
+<pre><code class="lang-js">/(?:^|\s)\w/g, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">c</span>) </span>{
+    <span class="hljs-comment">//&#x62EC;&#x53F7;&#x4E2D;&#x662F;&#x5F00;&#x5934;&#x6216;&#x8005;&#x7A7A;&#x683C;&#x554A;</span>
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>5.3 &#x9A7C;&#x5CF0;&#x5316;</strong></p>
+<blockquote>
+<pre><code class="lang-js">e(<span class="hljs-regexp">/[-_\s]+(.)?/g</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">match, c</span>) </span>{
+    <span class="hljs-comment">// &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x52A0;\s, match&#x53C2;&#x6570;&#x662F;&#x4EC0;&#x4E48;?</span>
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>5.5 html&#x8F6C;&#x4E49;&#x548C;&#x53CD;&#x8F6C;&#x4E49;</strong></p>
+<blockquote>
+<p>&#x8FD8;&#x6CA1;&#x770B;</p>
+</blockquote>
+</li>
+<li><p><strong>5.6 &#x5339;&#x914D;&#x6210;&#x5BF9;&#x6807;&#x7B7E;</strong></p>
+<blockquote>
+<p>&#x8FD8;&#x6CA1;&#x770B;</p>
+</blockquote>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../第二章 位置匹配/readme.html" class="navigation navigation-prev " aria-label="Previous page: 2. 位置匹配">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../第四章 回溯法原理/readme.html" class="navigation navigation-next " aria-label="Next page: 4. 回溯法原理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.表达式括号的作用","level":"1.5","depth":1,"next":{"title":"4. 回溯法原理","level":"1.6","depth":1,"path":"第四章 回溯法原理/readme.md","ref":"第四章 回溯法原理/readme.md","articles":[]},"previous":{"title":"2. 位置匹配","level":"1.4","depth":1,"path":"第二章 位置匹配/readme.md","ref":"第二章 位置匹配/readme.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expand-collapse-popup-window","livereload"],"pluginsConfig":{"expand-collapse-popup-window":{"myConfigKey":"it's the default value"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第三章 表达式括号的作用/readme.md","mtime":"2019-04-01T12:03:42.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-01T12:03:58.253Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expand-collapse-popup-window/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expand-collapse-popup-window/expand-collapse-popup-window.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
