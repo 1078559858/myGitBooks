@@ -271,24 +271,25 @@
                                 <h1 id="&#x4F4D;&#x7F6E;&#x5339;&#x914D;">&#x4F4D;&#x7F6E;&#x5339;&#x914D;</h1>
 <script>
     var menu = {
-        "m2_a_1":'#hello#',
-        "m2_a_2":'#I# <br>' + '#love#<br>' + '#javascript#<br>',
-        "m2_b_1":'\\b是单词边界，具体就是\\w和\\W之间的位置，也包括\\w和^之间的位置，也包括\\w和$之间的位置。',
+        "m2_a_1":'/^|$/g',
+        "m2_a_2":'/^|$/gm',
+        "m2_b_1":'\\b是单词边界，包括： <br>1.\\w和\\W之间的位置 <br>2.\\w和^之间的位置 <br>3.\\w和$之间的位置。',
         "m2_b_2":'[#JS#] #Lesson_01#.#mp4#',
         "m2_b_3":'#[J#S]# L#e#s#s#o#n#_#0#1.m#p#4',
-        "m2_c_1":'he#l#lo',
-        "m2_c_2":'#h#ell#o#',
+        "m2_c_1":'/(?=l)/g',
+        "m2_c_2":'/(?!l)/g',
         "m4_a_1":'/.^/',
         "m4_b_1":'/(?=\d{3}$)/g',
         "m4_b_2":'/(?=(\d{3})+$)/g',
         "m4_b_3":'/(?!^)(?=(\d{3})+$)/g',
         "m4_b_4":'/(?!\\b)(?=(\\d{3})+\\b)/g <br> /\\B(?=(\\d{3})+\\b)/g',
         "m4_c_1":'/^[0-9A-Za-z]{6,12}$/',
-        "m4_c_2":'/(?=.*[0-9])^[0-9A-Za-z]{6,12}$/',
+        "m4_c_2":'/(?=.*[0-9])^[0-9A-Za-z]{6,12}$/ <br> 这里还有点不理解：翻译成大白话，就是接下来的字符，必须包含个数字',
         "m4_c_3":'/(?=.*[0-9])(?=.*[a-z])^[0-9A-Za-z]{6,12}$/',
         "m4_c_4":'/(?!^[0-9]{6,12}$)(?!^[a-z]{6,12}$)(?!^[A-Z]{6,12}$)^[0-9A-Za-z]{6,12}$/;'
     }
 </script>
+
 
 
 
@@ -312,18 +313,18 @@
 <p>^&#xFF08;&#x8131;&#x5B57;&#x7B26;&#xFF09;&#x5339;&#x914D;&#x5F00;&#x5934;&#xFF0C;&#x5728;&#x591A;&#x884C;&#x5339;&#x914D;&#x4E2D;&#x5339;&#x914D;&#x884C;&#x5F00;&#x5934;&#x3002;</p>
 <p>$&#xFF08;&#x7F8E;&#x5143;&#x7B26;&#x53F7;&#xFF09;&#x5339;&#x914D;&#x7ED3;&#x5C3E;&#xFF0C;&#x5728;&#x591A;&#x884C;&#x5339;&#x914D;&#x4E2D;&#x5339;&#x914D;&#x884C;&#x7ED3;&#x5C3E;&#x3002;</p>
 <p>&#x7EC3;&#x4E60;1: &quot;hello&quot; -&gt; &quot;#hello#&quot;</p>
-<div style="display:inline"><b><a id="head_id_8878d779_7e2b_f1b0_98dd_61f185b824fe" onclick="expand_collapse(&quot;id_8878d779_7e2b_f1b0_98dd_61f185b824fe&quot;,&quot;head_id_8878d779_7e2b_f1b0_98dd_61f185b824fe&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_8878d779_7e2b_f1b0_98dd_61f185b824fe"><div class="list_single" id="singleid_8878d779_7e2b_f1b0_98dd_61f185b824fe"><script>document.getElementById("singleid_8878d779_7e2b_f1b0_98dd_61f185b824fe").innerHTML = menu.m2_a_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_08e8df5e_6384_51c4_f442_6e81833204ea" onclick="expand_collapse(&quot;id_08e8df5e_6384_51c4_f442_6e81833204ea&quot;,&quot;head_id_08e8df5e_6384_51c4_f442_6e81833204ea&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_08e8df5e_6384_51c4_f442_6e81833204ea"><div class="list_single" id="singleid_08e8df5e_6384_51c4_f442_6e81833204ea"><script>document.getElementById("singleid_08e8df5e_6384_51c4_f442_6e81833204ea").innerHTML = menu.m2_a_1</script></div></div></div>
 
 
 
 <p>&#x7EC3;&#x4E60;2: &quot;I\nlove\njavascript&quot;  -&gt;  &#x6BCF;&#x4E00;&#x884C;&#x884C;&#x9996;&#x548C;&#x884C;&#x5C3E;&#x90FD;&#x52A0;#&#x53F7;</p>
-<div style="display:inline"><b><a id="head_id_75a88082_8894_778f_652d_8b215aa09ae9" onclick="expand_collapse(&quot;id_75a88082_8894_778f_652d_8b215aa09ae9&quot;,&quot;head_id_75a88082_8894_778f_652d_8b215aa09ae9&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_75a88082_8894_778f_652d_8b215aa09ae9"><div class="list_single" id="singleid_75a88082_8894_778f_652d_8b215aa09ae9"><script>document.getElementById("singleid_75a88082_8894_778f_652d_8b215aa09ae9").innerHTML = menu.m2_a_2</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_235e6a05_7c60_3393_9cc0_48e3bf842559" onclick="expand_collapse(&quot;id_235e6a05_7c60_3393_9cc0_48e3bf842559&quot;,&quot;head_id_235e6a05_7c60_3393_9cc0_48e3bf842559&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_235e6a05_7c60_3393_9cc0_48e3bf842559"><div class="list_single" id="singleid_235e6a05_7c60_3393_9cc0_48e3bf842559"><script>document.getElementById("singleid_235e6a05_7c60_3393_9cc0_48e3bf842559").innerHTML = menu.m2_a_2</script></div></div></div>
 </blockquote>
 </li>
 <li><p><strong>\b&#x548C;\B</strong></p>
 <blockquote>
 <p>\b &#x4EE3;&#x8868;&#x4EC0;&#x4E48;?</p>
-<div style="display:inline"><b><a id="head_id_ca47a478_6ead_8b0c_a16e_fecdf80139e8" onclick="expand_collapse(&quot;id_ca47a478_6ead_8b0c_a16e_fecdf80139e8&quot;,&quot;head_id_ca47a478_6ead_8b0c_a16e_fecdf80139e8&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_ca47a478_6ead_8b0c_a16e_fecdf80139e8"><div class="list_single" id="singleid_ca47a478_6ead_8b0c_a16e_fecdf80139e8"><script>document.getElementById("singleid_ca47a478_6ead_8b0c_a16e_fecdf80139e8").innerHTML = menu.m2_b_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_44943ed9_c69c_eb11_72aa_8d01fa719efe" onclick="expand_collapse(&quot;id_44943ed9_c69c_eb11_72aa_8d01fa719efe&quot;,&quot;head_id_44943ed9_c69c_eb11_72aa_8d01fa719efe&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_44943ed9_c69c_eb11_72aa_8d01fa719efe"><div class="list_single" id="singleid_44943ed9_c69c_eb11_72aa_8d01fa719efe"><script>document.getElementById("singleid_44943ed9_c69c_eb11_72aa_8d01fa719efe").innerHTML = menu.m2_b_1</script></div></div></div>
 
 
 
@@ -331,7 +332,7 @@
 
 <span class="hljs-built_in">console</span>.log(result);
 </code></pre>
-<div style="display:inline"><b><a id="head_id_b5ff7ff9_e712_10b5_3456_f08a32f78339" onclick="expand_collapse(&quot;id_b5ff7ff9_e712_10b5_3456_f08a32f78339&quot;,&quot;head_id_b5ff7ff9_e712_10b5_3456_f08a32f78339&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_b5ff7ff9_e712_10b5_3456_f08a32f78339"><div class="list_single" id="singleid_b5ff7ff9_e712_10b5_3456_f08a32f78339"><script>document.getElementById("singleid_b5ff7ff9_e712_10b5_3456_f08a32f78339").innerHTML = menu.m2_b_2</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d" onclick="expand_collapse(&quot;id_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d&quot;,&quot;head_id_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d"><div class="list_single" id="singleid_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d"><script>document.getElementById("singleid_3b75c2b2_1a23_6f9a_0dd3_be2c6e4a425d").innerHTML = menu.m2_b_2</script></div></div></div>
 
 
 
@@ -339,19 +340,19 @@
 
 <span class="hljs-built_in">console</span>.log(result);
 </code></pre>
-<div style="display:inline"><b><a id="head_id_9de42374_6ba1_ce3b_835f_be48a02e1b40" onclick="expand_collapse(&quot;id_9de42374_6ba1_ce3b_835f_be48a02e1b40&quot;,&quot;head_id_9de42374_6ba1_ce3b_835f_be48a02e1b40&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_9de42374_6ba1_ce3b_835f_be48a02e1b40"><div class="list_single" id="singleid_9de42374_6ba1_ce3b_835f_be48a02e1b40"><script>document.getElementById("singleid_9de42374_6ba1_ce3b_835f_be48a02e1b40").innerHTML = menu.m2_b_3</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_5f84d8be_8182_db1c_38fc_44bb12b76339" onclick="expand_collapse(&quot;id_5f84d8be_8182_db1c_38fc_44bb12b76339&quot;,&quot;head_id_5f84d8be_8182_db1c_38fc_44bb12b76339&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_5f84d8be_8182_db1c_38fc_44bb12b76339"><div class="list_single" id="singleid_5f84d8be_8182_db1c_38fc_44bb12b76339"><script>document.getElementById("singleid_5f84d8be_8182_db1c_38fc_44bb12b76339").innerHTML = menu.m2_b_3</script></div></div></div>
 </blockquote>
 </li>
 <li><p><strong>(?=p)&#x548C;(?!p)</strong></p>
 <blockquote>
 <p>&#x5339;&#x914D; : p&#x524D;&#x9762;&#x7684;&#x90A3;&#x4E2A;&#x4F4D;&#x7F6E;(<strong>&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x89E3;&#x91CA;&#x5728;&#x4E0B;&#x9762;</strong>)</p>
 <p>&#x7EC3;&#x4E60;1: &quot;hello&quot; -&gt; &quot;he#l#lo&quot;</p>
-<div style="display:inline"><b><a id="head_id_1cff9e47_a2c1_6a7f_4d55_39b8637ee613" onclick="expand_collapse(&quot;id_1cff9e47_a2c1_6a7f_4d55_39b8637ee613&quot;,&quot;head_id_1cff9e47_a2c1_6a7f_4d55_39b8637ee613&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_1cff9e47_a2c1_6a7f_4d55_39b8637ee613"><div class="list_single" id="singleid_1cff9e47_a2c1_6a7f_4d55_39b8637ee613"><script>document.getElementById("singleid_1cff9e47_a2c1_6a7f_4d55_39b8637ee613").innerHTML = menu.m2_c_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_486d5f51_3fe3_f4d4_427b_b1c42bfff34d" onclick="expand_collapse(&quot;id_486d5f51_3fe3_f4d4_427b_b1c42bfff34d&quot;,&quot;head_id_486d5f51_3fe3_f4d4_427b_b1c42bfff34d&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_486d5f51_3fe3_f4d4_427b_b1c42bfff34d"><div class="list_single" id="singleid_486d5f51_3fe3_f4d4_427b_b1c42bfff34d"><script>document.getElementById("singleid_486d5f51_3fe3_f4d4_427b_b1c42bfff34d").innerHTML = menu.m2_c_1</script></div></div></div>
 
 
 
 <p>&#x7EC3;&#x4E60;2: &quot;hello&quot; -&gt; &quot;#h#ell#o#&quot;</p>
-<div style="display:inline"><b><a id="head_id_fa64f91d_e09f_d87a_9295_d5c09536bc71" onclick="expand_collapse(&quot;id_fa64f91d_e09f_d87a_9295_d5c09536bc71&quot;,&quot;head_id_fa64f91d_e09f_d87a_9295_d5c09536bc71&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_fa64f91d_e09f_d87a_9295_d5c09536bc71"><div class="list_single" id="singleid_fa64f91d_e09f_d87a_9295_d5c09536bc71"><script>document.getElementById("singleid_fa64f91d_e09f_d87a_9295_d5c09536bc71").innerHTML = menu.m2_c_2</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_bbda567b_52aa_c2ff_f8c3_5cf60f13da76" onclick="expand_collapse(&quot;id_bbda567b_52aa_c2ff_f8c3_5cf60f13da76&quot;,&quot;head_id_bbda567b_52aa_c2ff_f8c3_5cf60f13da76&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_bbda567b_52aa_c2ff_f8c3_5cf60f13da76"><div class="list_single" id="singleid_bbda567b_52aa_c2ff_f8c3_5cf60f13da76"><script>document.getElementById("singleid_bbda567b_52aa_c2ff_f8c3_5cf60f13da76").innerHTML = menu.m2_c_2</script></div></div></div>
 </blockquote>
 </li>
 </ol>
@@ -364,22 +365,22 @@
 <li><p>&#x6848;&#x4F8B;</p>
 <ol>
 <li><p>&#x4E0D;&#x5339;&#x914D;&#x4EFB;&#x4F55;</p>
-<div style="display:inline"><b><a id="head_id_2a4057d5_10c7_9442_7926_64d1dcd26010" onclick="expand_collapse(&quot;id_2a4057d5_10c7_9442_7926_64d1dcd26010&quot;,&quot;head_id_2a4057d5_10c7_9442_7926_64d1dcd26010&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_2a4057d5_10c7_9442_7926_64d1dcd26010"><div class="list_single" id="singleid_2a4057d5_10c7_9442_7926_64d1dcd26010"><script>document.getElementById("singleid_2a4057d5_10c7_9442_7926_64d1dcd26010").innerHTML = menu.m4_a_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362" onclick="expand_collapse(&quot;id_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362&quot;,&quot;head_id_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362"><div class="list_single" id="singleid_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362"><script>document.getElementById("singleid_a1ea9df8_c1c1_c4b0_e991_7ada3c0c9362").innerHTML = menu.m4_a_1</script></div></div></div>
 </li>
 <li><p>&#x6570;&#x5B57;&#x7684;&#x5343;&#x4F4D;&#x5206;&#x9694;&#x7B26;&#x8868;&#x793A;</p>
 <blockquote>
 <ul>
 <li><p>&#x5F04;&#x51FA;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x9017;&#x53F7;</p>
-<div style="display:inline"><b><a id="head_id_12a70a04_a298_c6b9_4afb_68b681bd2030" onclick="expand_collapse(&quot;id_12a70a04_a298_c6b9_4afb_68b681bd2030&quot;,&quot;head_id_12a70a04_a298_c6b9_4afb_68b681bd2030&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_12a70a04_a298_c6b9_4afb_68b681bd2030"><div class="list_single" id="singleid_12a70a04_a298_c6b9_4afb_68b681bd2030"><script>document.getElementById("singleid_12a70a04_a298_c6b9_4afb_68b681bd2030").innerHTML = menu.m4_b_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45" onclick="expand_collapse(&quot;id_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45&quot;,&quot;head_id_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45"><div class="list_single" id="singleid_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45"><script>document.getElementById("singleid_ed7cfd56_0b98_4b57_d79e_ec89fc8b6c45").innerHTML = menu.m4_b_1</script></div></div></div>
 </li>
 <li><p>&#x5F04;&#x51FA;&#x6240;&#x6709;&#x9017;&#x53F7;</p>
-<div style="display:inline"><b><a id="head_id_23e421b7_fe4c_0603_5976_06c940ed4238" onclick="expand_collapse(&quot;id_23e421b7_fe4c_0603_5976_06c940ed4238&quot;,&quot;head_id_23e421b7_fe4c_0603_5976_06c940ed4238&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_23e421b7_fe4c_0603_5976_06c940ed4238"><div class="list_single" id="singleid_23e421b7_fe4c_0603_5976_06c940ed4238"><script>document.getElementById("singleid_23e421b7_fe4c_0603_5976_06c940ed4238").innerHTML = menu.m4_b_2</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_f43ed21c_213b_0011_3bb2_e1d8f4fd927f" onclick="expand_collapse(&quot;id_f43ed21c_213b_0011_3bb2_e1d8f4fd927f&quot;,&quot;head_id_f43ed21c_213b_0011_3bb2_e1d8f4fd927f&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_f43ed21c_213b_0011_3bb2_e1d8f4fd927f"><div class="list_single" id="singleid_f43ed21c_213b_0011_3bb2_e1d8f4fd927f"><script>document.getElementById("singleid_f43ed21c_213b_0011_3bb2_e1d8f4fd927f").innerHTML = menu.m4_b_2</script></div></div></div>
 </li>
 <li><p>&#x4E0D;&#x5339;&#x914D;&#x5F00;&#x5934;</p>
-<div style="display:inline"><b><a id="head_id_9a7f8f82_12f0_c626_1649_e85f7056270a" onclick="expand_collapse(&quot;id_9a7f8f82_12f0_c626_1649_e85f7056270a&quot;,&quot;head_id_9a7f8f82_12f0_c626_1649_e85f7056270a&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_9a7f8f82_12f0_c626_1649_e85f7056270a"><div class="list_single" id="singleid_9a7f8f82_12f0_c626_1649_e85f7056270a"><script>document.getElementById("singleid_9a7f8f82_12f0_c626_1649_e85f7056270a").innerHTML = menu.m4_b_3</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_5af9d8c5_c137_307f_2e85_2dcc597b3276" onclick="expand_collapse(&quot;id_5af9d8c5_c137_307f_2e85_2dcc597b3276&quot;,&quot;head_id_5af9d8c5_c137_307f_2e85_2dcc597b3276&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_5af9d8c5_c137_307f_2e85_2dcc597b3276"><div class="list_single" id="singleid_5af9d8c5_c137_307f_2e85_2dcc597b3276"><script>document.getElementById("singleid_5af9d8c5_c137_307f_2e85_2dcc597b3276").innerHTML = menu.m4_b_3</script></div></div></div>
 </li>
 <li><p>&#x652F;&#x6301;&#x5176;&#x4ED6;&#x5F62;&#x5F0F;: &quot;12345678 123456789&quot;</p>
-<div style="display:inline"><b><a id="head_id_76a6aa07_2791_6fd2_23ab_427e31c40905" onclick="expand_collapse(&quot;id_76a6aa07_2791_6fd2_23ab_427e31c40905&quot;,&quot;head_id_76a6aa07_2791_6fd2_23ab_427e31c40905&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_76a6aa07_2791_6fd2_23ab_427e31c40905"><div class="list_single" id="singleid_76a6aa07_2791_6fd2_23ab_427e31c40905"><script>document.getElementById("singleid_76a6aa07_2791_6fd2_23ab_427e31c40905").innerHTML = menu.m4_b_4</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_74b571e8_0822_2e29_cc82_eb567fc06234" onclick="expand_collapse(&quot;id_74b571e8_0822_2e29_cc82_eb567fc06234&quot;,&quot;head_id_74b571e8_0822_2e29_cc82_eb567fc06234&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_74b571e8_0822_2e29_cc82_eb567fc06234"><div class="list_single" id="singleid_74b571e8_0822_2e29_cc82_eb567fc06234"><script>document.getElementById("singleid_74b571e8_0822_2e29_cc82_eb567fc06234").innerHTML = menu.m4_b_4</script></div></div></div>
 </li>
 </ul>
 </blockquote>
@@ -389,16 +390,16 @@
 <blockquote>
 <ol>
 <li><p>&#x4E0D;&#x8003;&#x8651;2&#x79CD;&#x5B57;&#x7B26;</p>
-<div style="display:inline"><b><a id="head_id_f5eb149b_ad2b_9096_430f_43a3af4f57e7" onclick="expand_collapse(&quot;id_f5eb149b_ad2b_9096_430f_43a3af4f57e7&quot;,&quot;head_id_f5eb149b_ad2b_9096_430f_43a3af4f57e7&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_f5eb149b_ad2b_9096_430f_43a3af4f57e7"><div class="list_single" id="singleid_f5eb149b_ad2b_9096_430f_43a3af4f57e7"><script>document.getElementById("singleid_f5eb149b_ad2b_9096_430f_43a3af4f57e7").innerHTML = menu.m4_c_1</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3" onclick="expand_collapse(&quot;id_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3&quot;,&quot;head_id_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3"><div class="list_single" id="singleid_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3"><script>document.getElementById("singleid_8ffa7d80_5ad6_d226_afcf_b7d2c067eff3").innerHTML = menu.m4_c_1</script></div></div></div>
 </li>
 <li><p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x5305;&#x542B;&#x6709;&#x67D0;&#x4E00;&#x79CD;&#x5B57;&#x7B26;</p>
-<div style="display:inline"><b><a id="head_id_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d" onclick="expand_collapse(&quot;id_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d&quot;,&quot;head_id_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d"><div class="list_single" id="singleid_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d"><script>document.getElementById("singleid_b9ae6754_ea3c_33f7_60bd_68a83ca7ef8d").innerHTML = menu.m4_c_2</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_1d0304c3_0d01_a76e_2188_a80a9048e6ea" onclick="expand_collapse(&quot;id_1d0304c3_0d01_a76e_2188_a80a9048e6ea&quot;,&quot;head_id_1d0304c3_0d01_a76e_2188_a80a9048e6ea&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_1d0304c3_0d01_a76e_2188_a80a9048e6ea"><div class="list_single" id="singleid_1d0304c3_0d01_a76e_2188_a80a9048e6ea"><script>document.getElementById("singleid_1d0304c3_0d01_a76e_2188_a80a9048e6ea").innerHTML = menu.m4_c_2</script></div></div></div>
 </li>
 <li><p>&#x540C;&#x65F6;&#x5305;&#x542B;&#x5177;&#x4F53;&#x4E24;&#x79CD;&#x5B57;&#x7B26;</p>
-<div style="display:inline"><b><a id="head_id_7c8b82ac_5f68_af99_375e_dc67b1320c6d" onclick="expand_collapse(&quot;id_7c8b82ac_5f68_af99_375e_dc67b1320c6d&quot;,&quot;head_id_7c8b82ac_5f68_af99_375e_dc67b1320c6d&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_7c8b82ac_5f68_af99_375e_dc67b1320c6d"><div class="list_single" id="singleid_7c8b82ac_5f68_af99_375e_dc67b1320c6d"><script>document.getElementById("singleid_7c8b82ac_5f68_af99_375e_dc67b1320c6d").innerHTML = menu.m4_c_3</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_77b5427d_f346_8a53_1155_914c10e904eb" onclick="expand_collapse(&quot;id_77b5427d_f346_8a53_1155_914c10e904eb&quot;,&quot;head_id_77b5427d_f346_8a53_1155_914c10e904eb&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_77b5427d_f346_8a53_1155_914c10e904eb"><div class="list_single" id="singleid_77b5427d_f346_8a53_1155_914c10e904eb"><script>document.getElementById("singleid_77b5427d_f346_8a53_1155_914c10e904eb").innerHTML = menu.m4_c_3</script></div></div></div>
 </li>
 <li><p>&#x7528;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x89E3;&#x7B54;: (?!p)</p>
-<div style="display:inline"><b><a id="head_id_cf2c535d_f187_b528_d7b5_77f027167c3c" onclick="expand_collapse(&quot;id_cf2c535d_f187_b528_d7b5_77f027167c3c&quot;,&quot;head_id_cf2c535d_f187_b528_d7b5_77f027167c3c&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_cf2c535d_f187_b528_d7b5_77f027167c3c"><div class="list_single" id="singleid_cf2c535d_f187_b528_d7b5_77f027167c3c"><script>document.getElementById("singleid_cf2c535d_f187_b528_d7b5_77f027167c3c").innerHTML = menu.m4_c_4</script></div></div></div>
+<div style="display:inline"><b><a id="head_id_ff312ab5_864b_1131_7934_ad5a0c86f7b1" onclick="expand_collapse(&quot;id_ff312ab5_864b_1131_7934_ad5a0c86f7b1&quot;,&quot;head_id_ff312ab5_864b_1131_7934_ad5a0c86f7b1&quot;)" style="font-size:undefined;color:rgb(56,167,200)">answer</a></b><div class="list_content" id="id_ff312ab5_864b_1131_7934_ad5a0c86f7b1"><div class="list_single" id="singleid_ff312ab5_864b_1131_7934_ad5a0c86f7b1"><script>document.getElementById("singleid_ff312ab5_864b_1131_7934_ad5a0c86f7b1").innerHTML = menu.m4_c_4</script></div></div></div>
 
 </li>
 </ol>
@@ -408,36 +409,40 @@
 </li>
 </ol>
 <h1 id="&#x7591;&#x95EE;">&#x7591;&#x95EE;</h1>
-<ol>
-<li><blockquote>
-<p>var obj = &quot;12345567&quot;;</p>
+<h3 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h3>
+<blockquote>
 <p>console.log(obj.replace(/(?=(\d{3})+$)/g, &apos;,&apos;)) </p>
-<p>console.log(obj.replace(/(?=(\d{3})+)/g, &apos;,&apos;)) </p>
-<p>console.log(obj.replace(/(?=(\d{3})$)/g, &apos;,&apos;)) </p>
-<p>console.log(obj.replace(/(?=(\d{3}))/g, &apos;,&apos;)) </p>
-<p>//&#x540E;&#x9762;&#x4E09;&#x4E2A;&#x90FD;&#x80FD;&#x7406;&#x89E3;,&#x5C31;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x7406;&#x89E3;&#x4E0D;&#x4E86;. </p>
-<p>&#x7F8E;&#x5143;&#x7B26;&#x4E0D;&#x6B62;&#x5339;&#x914D;&#x4E86;&#x6700;&#x672B;&#x5C3E;&#x7684;&#x4F4D;&#x7F6E;,&#x8FD8;&#x5339;&#x914D;&#x4E86;&#x5176;&#x4ED6;&#x7684;&#x4F4D;&#x7F6E;. &#x90A3;&#x4E48;: /^a/.test(&apos;ba&apos;) &#x5C31;&#x662F;false, &#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x8131;&#x5B57;&#x7B26;&#x4E0D;&#x80FD;&#x50CF;&#x7F8E;&#x5143;&#x7B26;&#x4E00;&#x6837;&#x5339;&#x914D;&#x5176;&#x4ED6;&#x7684;&#x4F4D;&#x7F6E;&#x5462;? &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;,&#x800C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x6700;&#x524D;&#x9762;&#x6216;&#x8005;&#x6700;&#x540E;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#x5462;?</p>
 </blockquote>
-</li>
-<li><blockquote>
-<p>\/.^\/ &#x8FD9;&#x4E2A;&#x6B63;&#x5219;&#x6709;&#x4EC0;&#x4E48;&#x610F;&#x4E49;? &#x6211;&#x8BA4;&#x4E3A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x6B63;&#x5219;.</p>
+<h3 id="&#x89E3;&#x91CA;">&#x89E3;&#x91CA;</h3>
+<blockquote>
+<p><strong>(?=pattern) &#x6B63;&#x5411;&#x5148;&#x884C;&#x65AD;&#x8A00;</strong> &#xFF1A; &#x4EE3;&#x8868;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;<strong>&#x7D27;&#x63A5;&#x8BE5;&#x4F4D;&#x7F6E;&#x4E4B;&#x540E;</strong>&#x7684;&#x5B57;&#x7B26;&#x5E8F;&#x5217;<strong>&#x80FD;&#x591F;&#x5339;&#x914D;</strong>pattern&#x3002; </p>
+<p><strong>(?!pattern) &#x8D1F;&#x5411;&#x5148;&#x884C;&#x65AD;&#x8A00;</strong> &#xFF1A; &#x4EE3;&#x8868;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;<strong>&#x7D27;&#x63A5;&#x8BE5;&#x4F4D;&#x7F6E;&#x4E4B;&#x540E;</strong>&#x7684;&#x5B57;&#x7B26;&#x5E8F;&#x5217;<strong>&#x4E0D;&#x80FD;&#x5339;&#x914D;</strong>pattern&#x3002; </p>
+<p><strong>(?&lt;=pattern) &#x6B63;&#x5411;&#x540E;&#x884C;&#x65AD;&#x8A00;</strong> &#xFF1A;&#x4EE3;&#x8868;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;<strong>&#x7D27;&#x63A5;&#x8BE5;&#x4F4D;&#x7F6E;&#x4E4B;&#x524D;</strong>&#x7684;&#x5B57;&#x7B26;&#x5E8F;&#x5217;<strong>&#x80FD;&#x591F;&#x5339;&#x914D;</strong>pattern&#x3002;</p>
+<p><strong>(?&lt;!pattern) &#x8D1F;&#x5411;&#x540E;&#x884C;&#x65AD;&#x8A00;</strong> &#xFF1A; &#x4EE3;&#x8868;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;<strong>&#x7D27;&#x63A5;&#x8BE5;&#x4F4D;&#x7F6E;&#x4E4B;&#x524D;</strong>&#x7684;&#x5B57;&#x7B26;&#x5E8F;&#x5217;<strong>&#x4E0D;&#x80FD;&#x5339;&#x914D;</strong>pattern&#x3002; </p>
+<p>&#x53C2;&#x8003;&#xFF1A;<a href="https://blog.51cto.com/cnn237111/749047" target="_blank">&#x5148;&#x884C;&#x548C;&#x540E;&#x884C;&#x65AD;&#x8A00;</a></p>
 </blockquote>
-</li>
-<li><blockquote>
-<p>/(?=.*[0-9])^[0-9A-Za-z]{6,12}$/;
-&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x8131;&#x5B57;&#x8282;&#x6709;&#x4EC0;&#x4E48;&#x542B;&#x4E49;?</p>
-<p>&#x7B54;: &#x4F4D;&#x7F6E;&#x7406;&#x89E3;&#x6210;&#x7A7A;&#x5B57;&#x7B26;</p>
+<h3 id="&#x6211;&#x7684;&#x7406;&#x89E3;&#x662F;">&#x6211;&#x7684;&#x7406;&#x89E3;&#x662F;</h3>
+<blockquote>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x5148;&#x884C;&#x65AD;&#x8A00;&#xFF08;&#x6B63;&#x5411;&#x5148;&#x884C;&#x65AD;&#x8A00;&#x3001;&#x8D1F;&#x5411;&#x5148;&#x884C;&#x65AD;&#x8A00;&#xFF09;&#xFF0C;&#x53EA;&#x4F7F;&#x7528;&#x7F8E;&#x5143;&#x7B26;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x540E;&#x884C;&#x65AD;&#x8A00;&#xFF08;&#x6B63;&#x5411;&#x540E;&#x884C;&#x65AD;&#x8A00;&#x3001;&#x8D1F;&#x5411;&#x540E;&#x884C;&#x65AD;&#x8A00;&#xFF09;&#xFF0C;&#x53EA;&#x4F7F;&#x7528;&#x8131;&#x5B57;&#x7B26;&#x3002;</li>
+</ul>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x201C;<strong>&#x53EA;&#x4F7F;&#x7528;</strong>&#x201D;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x5931;&#x53BB;&#x5148;&#x884C;&#x548C;&#x540E;&#x884C;&#x65AD;&#x8A00;&#x7684;&#x610F;&#x4E49;&#xFF01;</p>
 </blockquote>
-</li>
-<li><blockquote>
-<p>(?=.*[0-9])^  &#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#x5F00;&#x5934;?  &#x4E3A;&#x4EC0;&#x4E48;/^a/&#x5C31;&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#x5F00;&#x5934;&#x800C;&#x4E0D;&#x662F;&#x4E2D;&#x95F4;&#x7684;&#x5F00;&#x59CB;? </p>
+<h3 id="&#x7EC3;&#x4E60;">&#x7EC3;&#x4E60;</h3>
+<blockquote>
+<p>ps: &#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x4E0D;&#x5305;&#x542B;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x7528;[^...]&#x5F62;&#x5F0F;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;; &#x4E0D;&#x5305;&#x542B;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5462;&#xFF1F;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x8D1F;&#x5411;&#x65AD;&#x8A00;&#x4E86;&#xFF01;</p>
+<p>&#x4F8B;&#x5982;&#x5224;&#x65AD;&#x4E00;&#x53E5;&#x8BDD;&#x4E2D;&#x5305;&#x542B;this&#xFF0C;&#x4F46;&#x4E0D;&#x5305;&#x542B;that&#x3002; </p>
+<p>&#x6211;&#x7684;&#x7B54;&#x6848;&#xFF1A;</p>
+<p>var str = &quot;that is this&quot;</p>
+<p>var r_has_this = /(?=(\bthis\b))/;</p>
+<p>var r_not_that = /(?!(that))/  //&#x601D;&#x8003;&#x4E3A;&#x4EC0;&#x4E48;&#x662F;true&#xFF1F;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x5199;&#xFF1F;</p>
+<p>&#x3002;&#x3002;&#x3002;</p>
+<p>&#x672A;&#x5B8C;&#x5F85;&#x7EED;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x4F5C;&#x8005;&#x7B54;&#x6848;&#xFF1A;</p>
+<p>&#x3002;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x672A;&#x5B8C;&#x5F85;&#x7EED;&#x3002;&#x3002;&#x3002;</p>
 </blockquote>
-<p>ps: &#x5DF2;&#x5728;&#x77E5;&#x4E4E;&#x8BF7;&#x6559;&#x4F5C;&#x8005;,&#x7B49;&#x5F85;&#x56DE;&#x590D;&#x4E2D;.</p>
-<p>&#x6211;&#x7406;&#x89E3;&#x662F;&#x5728;&#x5339;&#x914D;&#x4F4D;&#x7F6E;&#x7684;&#x65F6;&#x5019;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x53EA;&#x6709;&#x5728;&#x96F6;&#x5BBD;&#x65AD;&#x8A00;&#x5185;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;,&#x4F7F;&#x7528;&#x8131;&#x5B57;&#x7B26;&#x548C;&#x7F8E;&#x5143;&#x7B26;&#x624D;&#x53EF;&#x5339;&#x914D;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;,&#x4E0D;&#x7136;&#x5C31;&#x662F;&#x5339;&#x914D;&#x884C;&#x9996;&#x548C;&#x884C;&#x5C3E;.</p>
-</li>
-<li><p><a href="https://blog.51cto.com/cnn237111/749047" target="_blank">https://blog.51cto.com/cnn237111/749047</a>   &#x7814;&#x7A76;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;</p>
-</li>
-</ol>
 
                                 
                                 </section>
@@ -481,7 +486,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 位置匹配","level":"1.4","depth":1,"next":{"title":"3.表达式括号的作用","level":"1.5","depth":1,"path":"第三章 表达式括号的作用/readme.md","ref":"第三章 表达式括号的作用/readme.md","articles":[]},"previous":{"title":"1. 字符匹配","level":"1.3","depth":1,"path":"第一章 字符匹配/readme.md","ref":"第一章 字符匹配/readme.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expand-collapse-popup-window"],"pluginsConfig":{"expand-collapse-popup-window":{"myConfigKey":"it's the default value"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二章 位置匹配/readme.md","mtime":"2019-04-02T07:45:31.979Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T09:31:04.525Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. 位置匹配","level":"1.4","depth":1,"next":{"title":"3.表达式括号的作用","level":"1.5","depth":1,"path":"第三章 表达式括号的作用/readme.md","ref":"第三章 表达式括号的作用/readme.md","articles":[]},"previous":{"title":"1. 字符匹配","level":"1.3","depth":1,"path":"第一章 字符匹配/readme.md","ref":"第一章 字符匹配/readme.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expand-collapse-popup-window","livereload"],"pluginsConfig":{"expand-collapse-popup-window":{"myConfigKey":"it's the default value"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二章 位置匹配/readme.md","mtime":"2019-04-02T14:11:50.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T14:12:14.432Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -496,6 +501,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-expand-collapse-popup-window/expand-collapse-popup-window.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
