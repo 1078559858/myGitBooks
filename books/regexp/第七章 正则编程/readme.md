@@ -167,11 +167,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expression
   >
   > console.log(regex.source)//\w
 
-
-
-
-
 ## 3: 真实案例
+
+[正则测试网页](https://1078559858.github.io/myGitBooks/html/testRegExp.html)
 
 
 
