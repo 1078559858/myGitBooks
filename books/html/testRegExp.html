@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>test regexp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <style>
+    section{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
+      height:300px;
+      padding:0 200px;
+    }
+
+    section *{
+      text-align:middle;
+      min-width: 300px;
+      min-height:30px;
+    }
+  </style>
+  <section>
+    <p id="error" style="color:red;"></p>
+    <div>
+      <input placeholder="regexp" id="regexp">
+    </div>
+
+    <div>
+      <input placeholder="str" id="str">
+    </div>
+    <div>
+    <button id="test" onClick="test()">test</button>
+    </div>
+    <p id="res"></p>
+  </section>
+
+  <script>
+    function test(){
+      var str = document.getElementById('str').value;
+      var regexp = document.getElementById('regexp').value;
+      var elError = document.getElementById('error');
+      var elRes = document.getElementById('res');
+
+      
+      regexp = createRegExp(regexp);
+
+      var arr = str.match(regexp);
+      console.log(arr);
+
+      if(!arr){
+        elRes.innerHTML = '0 个结果';
+        return ;
+      }
+
+      var el = ""
+      for(var i = 0; i < arr.length; i++){
+        el += str.substr(0,str.indexOf(arr[i]));
+        el += "<text style='background:#ff0;'>" + arr[i] + "</text>"; 
+        str = str.substr(str.indexOf(arr[i]) + arr[i].length);
+      }
+      el += str;
+
+      elRes.innerHTML = el;
+
+    }
+
+    function createRegExp(regexp){
+      try{
+        if(regexp[0] === '/'){
+          regexp = regexp.split('/')
+          regexp.shift();
+          var flags = regexp.pop();
+          regexp = regexp.join('/')
+          return new RegExp(regexp, flags)
+
+        }else {
+          return new RegExp(regexp, 'g');
+        }
+      }catch(e){
+        var elError = document.getElementById('error');
+        elError.innerHTML = '无效正则';
+        return false;
+      }
+    }
+    
+  </script>
+  
+</body>
+</html>
