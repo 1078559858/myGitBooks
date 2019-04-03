@@ -1,0 +1,539 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7. 正则编程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expand-collapse-popup-window/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../个人总结/" />
+    
+    
+    <link rel="prev" href="../第六章 构建/readme.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="https://1078559858.github.io/myGitBooks">
+            
+                    
+                    home page
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    文章出处
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../第一章 字符匹配/readme.html">
+            
+                <a href="../第一章 字符匹配/readme.html">
+            
+                    
+                    1. 字符匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../第二章 位置匹配/readme.html">
+            
+                <a href="../第二章 位置匹配/readme.html">
+            
+                    
+                    2. 位置匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../第三章 表达式括号的作用/readme.html">
+            
+                <a href="../第三章 表达式括号的作用/readme.html">
+            
+                    
+                    3.表达式括号的作用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../第四章 回溯法原理/readme.html">
+            
+                <a href="../第四章 回溯法原理/readme.html">
+            
+                    
+                    4. 回溯法原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../第五章 拆分/readme.html">
+            
+                <a href="../第五章 拆分/readme.html">
+            
+                    
+                    5. 拆分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../第六章 构建/readme.html">
+            
+                <a href="../第六章 构建/readme.html">
+            
+                    
+                    6. 构建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    7. 正则编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../个人总结/">
+            
+                <a href="../个人总结/">
+            
+                    
+                    个人总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >7. 正则编程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6B63;&#x5219;&#x7F16;&#x7A0B;">&#x6B63;&#x5219;&#x7F16;&#x7A0B;</h1>
+<script>
+     var menu = {
+         "m1_1_1":" //indexof和search的区别是,indexof有两个参数,且不接受正则. 而search只接受正则.<br>//stringObject.indexOf(searchvalue,fromindex) 返回-1 或者idx下标<br>var res = 'asdf123'.indexOf(/\d/);<br>console.log(res);",
+         "m1_1_2":"var res = 'asdf'.search(/\d/);//字符串方法<br>console.log(!!~res)//search 返回-1 或者idx下标. 取反运算得到的是-(x+1).",
+         "m1_1_3":"var res = /\d/.test('123asdf');//正则方法, 最常用<br>console.log(res); //返回true或者false",
+         "m1_1_4":"var res = 'asdf123'.match(/\d/);//字符串方法<br>console.log(res); //返回数组或者null, 带g的时候返回所有匹配数组.",
+         "m1_1_5":"var res = /\d/g.exec('asdf123');//正则方法<br>console.log(res); //返回数组或者null, 带g的时候和不带g返回一致.",
+         "m1_3_1":'//match 最常用<br>var str = "2017-06-21";<br>var reg = /^(\d{4})-(\d{2})-(\d{2})$/<br>var res = str.match(reg);<br>console.log(res); // 数组 <br>console.log(res[1]) //2017',
+         "m1_3_2":'var str = "2017-06-21";<br>var reg = /^(\d{4})-(\d{2})-(\d{2})$/<br>var res = reg.exec(str);<br>console.log(res); // 数组 <br>console.log(res[1]) //2017',
+         "m1_3_3":'var reg = /^(\d{4})-(\d{2})-(\d{2})/<br>var str = "2017-06-21";<br>console.log(reg.test(str))  <br>console.log(RegExp.$1)',
+         "m1_3_4":"参考test",
+         "m1_3_5":'var reg = /^(\d{4})-(\d{2})-(\d{2})/<br>varstr = "2017-06-21";<br>var arr = []<br>str.replace(reg, function(match, year, month, day){<br>\\t arr.push(year, month, day)<br>})<br>console.log(arr);'
+     }
+</script>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x65B9;&#x6CD5;</th>
+<th style="text-align:left">&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>exec</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6267;&#x884C;&#x67E5;&#x627E;&#x5339;&#x914D;&#x7684;RegExp&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF08;&#x672A;&#x5339;&#x914D;&#x5230;&#x5219;&#x8FD4;&#x56DE;null&#xFF09;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>test</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x5339;&#x914D;&#x7684;RegExp&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;true&#x6216;false&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>match</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6267;&#x884C;&#x67E5;&#x627E;&#x5339;&#x914D;&#x7684;String&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x6216;&#x8005;&#x5728;&#x672A;&#x5339;&#x914D;&#x5230;&#x65F6;&#x8FD4;&#x56DE;null&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>search</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6D4B;&#x8BD5;&#x5339;&#x914D;&#x7684;String&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x5230;&#x7684;&#x4F4D;&#x7F6E;&#x7D22;&#x5F15;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x5931;&#x8D25;&#x65F6;&#x8FD4;&#x56DE;-1&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>replace</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6267;&#x884C;&#x67E5;&#x627E;&#x5339;&#x914D;&#x7684;String&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x6389;&#x5339;&#x914D;&#x5230;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>split</code></td>
+<td style="text-align:left">&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x5206;&#x9694;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E76;&#x5C06;&#x5206;&#x9694;&#x540E;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x5B58;&#x50A8;&#x5230;&#x6570;&#x7EC4;&#x4E2D;&#x7684;String&#x65B9;&#x6CD5;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions</a></p>
+<h2 id="1-&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x56DB;&#x79CD;&#x64CD;&#x4F5C;">1: &#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x56DB;&#x79CD;&#x64CD;&#x4F5C;</h2>
+<ol>
+<li><p>&#x5339;&#x914D;(&#x67E5;&#x627E;\&#x9A8C;&#x8BC1;)</p>
+<blockquote>
+<ul>
+<li><div style="display:inline"><b><a id="head_id_20bf80fb_585f_a955_e701_d486736b97e1" onclick="expand_collapse(&quot;id_20bf80fb_585f_a955_e701_d486736b97e1&quot;,&quot;head_id_20bf80fb_585f_a955_e701_d486736b97e1&quot;)" style="font-size:undefined;color:rgb(56,167,200)">indexof</a></b><div class="list_content" id="id_20bf80fb_585f_a955_e701_d486736b97e1"><div class="list_single" id="singleid_20bf80fb_585f_a955_e701_d486736b97e1"><script>document.getElementById("singleid_20bf80fb_585f_a955_e701_d486736b97e1").innerHTML = menu.m1_1_1</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e" onclick="expand_collapse(&quot;id_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e&quot;,&quot;head_id_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e&quot;)" style="font-size:undefined;color:rgb(56,167,200)">search</a></b><div class="list_content" id="id_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e"><div class="list_single" id="singleid_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e"><script>document.getElementById("singleid_b0ee6d4b_d2e9_d618_8998_21c72cbfff7e").innerHTML = menu.m1_1_2</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_9fc9d414_3ee1_1344_bf25_972081761896" onclick="expand_collapse(&quot;id_9fc9d414_3ee1_1344_bf25_972081761896&quot;,&quot;head_id_9fc9d414_3ee1_1344_bf25_972081761896&quot;)" style="font-size:undefined;color:rgb(56,167,200)">test-&#x5E38;&#x7528;</a></b><div class="list_content" id="id_9fc9d414_3ee1_1344_bf25_972081761896"><div class="list_single" id="singleid_9fc9d414_3ee1_1344_bf25_972081761896"><script>document.getElementById("singleid_9fc9d414_3ee1_1344_bf25_972081761896").innerHTML = menu.m1_1_3</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e" onclick="expand_collapse(&quot;id_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e&quot;,&quot;head_id_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e&quot;)" style="font-size:undefined;color:rgb(56,167,200)">match</a></b><div class="list_content" id="id_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e"><div class="list_single" id="singleid_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e"><script>document.getElementById("singleid_475dbd0b_a7cd_522f_ce22_d16ae7d91a3e").innerHTML = menu.m1_1_4</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_a0a440e2_5bf4_126f_87f0_56c79171f8c9" onclick="expand_collapse(&quot;id_a0a440e2_5bf4_126f_87f0_56c79171f8c9&quot;,&quot;head_id_a0a440e2_5bf4_126f_87f0_56c79171f8c9&quot;)" style="font-size:undefined;color:rgb(56,167,200)">exec</a></b><div class="list_content" id="id_a0a440e2_5bf4_126f_87f0_56c79171f8c9"><div class="list_single" id="singleid_a0a440e2_5bf4_126f_87f0_56c79171f8c9"><script>document.getElementById("singleid_a0a440e2_5bf4_126f_87f0_56c79171f8c9").innerHTML = menu.m1_1_5</script></div></div></div>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>&#x5207;&#x5206;</p>
+<ul>
+<li>split</li>
+</ul>
+</li>
+<li><p>&#x63D0;&#x53D6;</p>
+<ul>
+<li><div style="display:inline"><b><a id="head_id_4b020e1d_0838_139c_e709_648630fd2a92" onclick="expand_collapse(&quot;id_4b020e1d_0838_139c_e709_648630fd2a92&quot;,&quot;head_id_4b020e1d_0838_139c_e709_648630fd2a92&quot;)" style="font-size:undefined;color:rgb(56,167,200)">match-&#x5E38;&#x7528;</a></b><div class="list_content" id="id_4b020e1d_0838_139c_e709_648630fd2a92"><div class="list_single" id="singleid_4b020e1d_0838_139c_e709_648630fd2a92"><script>document.getElementById("singleid_4b020e1d_0838_139c_e709_648630fd2a92").innerHTML = menu.m1_3_1</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_43af9929_be86_cbb9_69f4_4dd8c22e92cc" onclick="expand_collapse(&quot;id_43af9929_be86_cbb9_69f4_4dd8c22e92cc&quot;,&quot;head_id_43af9929_be86_cbb9_69f4_4dd8c22e92cc&quot;)" style="font-size:undefined;color:rgb(56,167,200)">exec</a></b><div class="list_content" id="id_43af9929_be86_cbb9_69f4_4dd8c22e92cc"><div class="list_single" id="singleid_43af9929_be86_cbb9_69f4_4dd8c22e92cc"><script>document.getElementById("singleid_43af9929_be86_cbb9_69f4_4dd8c22e92cc").innerHTML = menu.m1_3_2</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_923a713a_4e19_e891_b34a_8ffe402b06d7" onclick="expand_collapse(&quot;id_923a713a_4e19_e891_b34a_8ffe402b06d7&quot;,&quot;head_id_923a713a_4e19_e891_b34a_8ffe402b06d7&quot;)" style="font-size:undefined;color:rgb(56,167,200)">test</a></b><div class="list_content" id="id_923a713a_4e19_e891_b34a_8ffe402b06d7"><div class="list_single" id="singleid_923a713a_4e19_e891_b34a_8ffe402b06d7"><script>document.getElementById("singleid_923a713a_4e19_e891_b34a_8ffe402b06d7").innerHTML = menu.m1_3_3</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925" onclick="expand_collapse(&quot;id_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925&quot;,&quot;head_id_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925&quot;)" style="font-size:undefined;color:rgb(56,167,200)">search</a></b><div class="list_content" id="id_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925"><div class="list_single" id="singleid_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925"><script>document.getElementById("singleid_d02d38d2_c8f9_c32a_6bf7_2e0e8df30925").innerHTML = menu.m1_3_4</script></div></div></div></li>
+<li><div style="display:inline"><b><a id="head_id_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab" onclick="expand_collapse(&quot;id_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab&quot;,&quot;head_id_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab&quot;)" style="font-size:undefined;color:rgb(56,167,200)">replace</a></b><div class="list_content" id="id_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab"><div class="list_single" id="singleid_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab"><script>document.getElementById("singleid_c9807ff4_334f_8d58_2a6c_b9edf0cbf7ab").innerHTML = menu.m1_3_5</script></div></div></div>
+</li>
+</ul>
+</li>
+<li><p>&#x66FF;&#x6362;</p>
+<ul>
+<li>&#x4E00;&#x822C;&#x4F7F;&#x7528;replace</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-&#x76F8;&#x5173;api&#x7684;&#x6CE8;&#x610F;&#x8981;&#x70B9;">2: &#x76F8;&#x5173;api&#x7684;&#x6CE8;&#x610F;&#x8981;&#x70B9;</h2>
+<ul>
+<li><p>search&#x548C;match&#x7684;&#x53C2;&#x6570;&#x95EE;&#x9898;</p>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5B57;&#x7B26;&#x4E32;&#x5B9E;&#x4F8B;&#x7684;&#x90A3;4&#x4E2A;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x90FD;&#x652F;&#x6301;&#x6B63;&#x5219;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x4F46;search&#x548C;match&#xFF0C;&#x4F1A;&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x6B63;&#x5219;&#x7684;&#x3002;</p>
+<p>&#x8F6C;&#x6210;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;</p>
+<p>string.search(/./)
+string.search(&quot;\.&quot;)</p>
+</blockquote>
+</li>
+<li><p>match&#x683C;&#x5F0F;(&#x52A0;G&#x548C;&#x4E0D;&#x52A0;G)</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> string = <span class="hljs-string">&quot;2017.06.27&quot;</span>;
+<span class="hljs-keyword">var</span> regex1 = <span class="hljs-regexp">/\b(\d+)\b/</span>;
+<span class="hljs-keyword">var</span> regex2 = <span class="hljs-regexp">/\b(\d+)\b/g</span>;
+<span class="hljs-built_in">console</span>.log( string.match(regex1) );
+<span class="hljs-built_in">console</span>.log( string.match(regex2) );
+<span class="hljs-comment">// =&gt; [&quot;2017&quot;, &quot;2017&quot;, index: 0, input: &quot;2017.06.27&quot;]</span>
+<span class="hljs-comment">// =&gt; [&quot;2017&quot;, &quot;06&quot;, &quot;27&quot;]</span>
+</code></pre>
+</li>
+<li><p>exec&#x548C;match&#x7684;&#x6BD4;&#x8F83;</p>
+<p>&#x6709;G&#x7684;&#x65F6;&#x5019;, exec&#x80FD;&#x63A5;&#x7740;&#x4E0A;&#x4E00;&#x6B21;&#x5339;&#x914D;&#x540E;&#x7EE7;&#x7EED;&#x5339;&#x914D;, &#x4E00;&#x822C;&#x7528;&#x4F5C;while&#x5FAA;&#x73AF;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> string = <span class="hljs-string">&quot;2017.06.27&quot;</span>;
+<span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/\b\d+\b/g</span>;
+<span class="hljs-keyword">var</span> result 
+<span class="hljs-keyword">while</span> (result = reg.exec(string)) {
+  <span class="hljs-built_in">console</span>.log(result, reg.lastIndex);
+}
+</code></pre>
+</li>
+<li><p>g&#x5BF9;exec&#x548C;test&#x7684;&#x5F71;&#x54CD;</p>
+<p><strong>&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x56DB;&#x4E2A;&#x65B9;&#x6CD5;,&#x90FD;&#x6CA1;&#x95EE;&#x9898;.  &#x6B63;&#x5219;&#x7684;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;,&#x90FD;&#x6709;&#x95EE;&#x9898;,&#x614E;&#x7528;!!!!</strong></p>
+<p><strong>&#x6709;g&#x7684;&#x65F6;&#x5019;, test&#x614E;&#x7528;!!!</strong> </p>
+<p><strong>test&#x4F1A;&#x8BB0;&#x5F55;lastIndex</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> regex = <span class="hljs-regexp">/a/g</span>;
+<span class="hljs-built_in">console</span>.log( regex.test(<span class="hljs-string">&quot;a&quot;</span>), regex.lastIndex );
+<span class="hljs-built_in">console</span>.log( regex.test(<span class="hljs-string">&quot;aba&quot;</span>), regex.lastIndex );
+<span class="hljs-built_in">console</span>.log( regex.test(<span class="hljs-string">&quot;ababc&quot;</span>), regex.lastIndex );
+</code></pre>
+</li>
+<li><p>split&#x76F8;&#x5173;&#x6CE8;&#x610F;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> str = <span class="hljs-string">&apos;html,java,css&apos;</span>
+<span class="hljs-built_in">console</span>.log(str.split(<span class="hljs-regexp">/,/</span>, <span class="hljs-number">2</span>))<span class="hljs-comment">//&#x53EF;&#x4EE5;&#x6709;&#x957F;&#x5EA6;&#x9650;&#x5236;</span>
+
+<span class="hljs-built_in">console</span>.log(str.split(<span class="hljs-regexp">/,/</span>)) 
+<span class="hljs-built_in">console</span>.log(str.split(<span class="hljs-regexp">/(,)/</span>))<span class="hljs-comment">//&#x6709;&#x5206;&#x7EC4;&#x7684;&#x65F6;&#x5019;,&#x7ED3;&#x679C;&#x6570;&#x7EC4;&#x4E2D;&#x662F;&#x5305;&#x542B;&#x5206;&#x9694;&#x7B26;&#x7684;</span>
+<span class="hljs-built_in">console</span>.log(str.split(<span class="hljs-regexp">/(?:,)/</span>))
+
+<span class="hljs-comment">//[ &apos;html&apos;, &apos;java&apos; ]</span>
+<span class="hljs-comment">//[ &apos;html&apos;, &apos;java&apos;, &apos;css&apos; ]</span>
+<span class="hljs-comment">//[ &apos;html&apos;, &apos;,&apos;, &apos;java&apos;, &apos;,&apos;, &apos;css&apos; ]</span>
+<span class="hljs-comment">//[ &apos;html&apos;, &apos;java&apos;, &apos;css&apos; ]</span>
+</code></pre>
+</li>
+<li><p>replace&#x7684;&#x5F3A;&#x5927;</p>
+<blockquote>
+<p>$1,$2,...,$99 &#x5339;&#x914D;&#x7B2C;1~99&#x4E2A;&#x5206;&#x7EC4;&#x91CC;&#x6355;&#x83B7;&#x7684;&#x6587;&#x672C;
+$&amp; &#x5339;&#x914D;&#x5230;&#x7684;&#x5B50;&#x4E32;
+$` &#x5339;&#x914D;&#x5230;&#x7684;&#x5B50;&#x4E32;&#x7684;&#x5DE6;&#x8FB9;&#x6587;&#x672C;
+$&apos; &#x5339;&#x914D;&#x5230;&#x7684;&#x5B50;&#x4E32;&#x7684;&#x53F3;&#x8FB9;&#x6587;&#x672C;
+$$ &#x7F8E;&#x5143;&#x7B26;&#x53F7;</p>
+</blockquote>
+<p>&#x628A;&quot;2,3,5&quot;&#xFF0C;&#x53D8;&#x6210;&quot;5=2+3&quot;</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;2,3,5&quot;</span>.replace(<span class="hljs-regexp">/(\d+),(\d+),(\d+)/</span>, <span class="hljs-string">&quot;$3=$1+$2&quot;</span>)
+</code></pre>
+<p>&#x628A;&quot;2,3,5&quot;&#xFF0C;&#x53D8;&#x6210;&quot;222,333,555&quot;:</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;2,3,5&quot;</span>.replace(<span class="hljs-regexp">/(\d+),(\d+),(\d+)/</span>, <span class="hljs-string">&quot;$3=$1+$2&quot;</span>)
+</code></pre>
+<p>&#x628A;&quot;2+3=5&quot;&#xFF0C;&#x53D8;&#x6210;&quot;2+3=2+3=5=5&quot;:</p>
+<pre><code class="lang-js"><span class="hljs-string">&quot;2+3=5&quot;</span>.replace(<span class="hljs-regexp">/=/</span>, <span class="hljs-string">&quot;$&amp;$`$&amp;$&apos;$&amp;&quot;</span>);
+</code></pre>
+</li>
+<li><p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x591A;&#x7528;&#x5B57;&#x9762;&#x91CF;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> string = <span class="hljs-string">&quot;2017-06-27 2017.06.27 2017/06/27&quot;</span>;
+<span class="hljs-keyword">var</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;\\d{4}(\-|\_|\.)\\d{2}\\1\\d{2}&quot;</span>,<span class="hljs-string">&quot;g&quot;</span>);
+<span class="hljs-built_in">console</span>.log(string.match(reg));
+</code></pre>
+</li>
+<li><p>&#x79C1;&#x6709;&#x5C5E;&#x6027;</p>
+<blockquote>
+<p>var regex = /\w/img;</p>
+<p>console.log(regex.global)//true</p>
+<p>console.log( regex.ignoreCase );//true</p>
+<p>console.log( regex.multiline );//true</p>
+<p>console.log(regex.source)//\w</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-&#x771F;&#x5B9E;&#x6848;&#x4F8B;">3: &#x771F;&#x5B9E;&#x6848;&#x4F8B;</h2>
+<p><a href="https://1078559858.github.io/myGitBooks/books/html/testRegExp.html" target="_blank">&#x6B63;&#x5219;&#x6D4B;&#x8BD5;&#x7F51;&#x9875;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../第六章 构建/readme.html" class="navigation navigation-prev " aria-label="Previous page: 6. 构建">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../个人总结/" class="navigation navigation-next " aria-label="Next page: 个人总结">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7. 正则编程","level":"1.9","depth":1,"next":{"title":"个人总结","level":"1.10","depth":1,"path":"个人总结/README.MD","ref":"个人总结/README.MD","articles":[]},"previous":{"title":"6. 构建","level":"1.8","depth":1,"path":"第六章 构建/readme.md","ref":"第六章 构建/readme.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expand-collapse-popup-window","livereload"],"pluginsConfig":{"expand-collapse-popup-window":{"myConfigKey":"it's the default value"},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第七章 正则编程/readme.md","mtime":"2019-04-03T13:22:31.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-03T13:22:36.442Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expand-collapse-popup-window/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expand-collapse-popup-window/expand-collapse-popup-window.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
