@@ -46,8 +46,17 @@
 
       
       regexp = createRegExp(regexp);
+      var result;
+      var arr = [];
 
-      var arr = str.match(regexp);
+      if(regexp.global){
+        while(result = regexp.exec(str)){
+          arr.push(result)
+        }
+      }else {
+        arr.push(regexp.exec(str))
+      }
+
       console.log(arr);
 
       if(!arr){
@@ -56,14 +65,22 @@
       }
 
       var el = ""
-      for(var i = 0; i < arr.length; i++){
-        el += str.substr(0,str.indexOf(arr[i]));
-        el += "<text style='background:#ff0;'>" + arr[i] + "</text>"; 
-        str = str.substr(str.indexOf(arr[i]) + arr[i].length);
-      }
-      el += str;
+      var text = str;
+      console.log(arr);
+      for(var i = arr.length - 1; i >= 0; i--){
+        var result = arr[i];
+        var match = arr[0];
+        var prefix = text.substr(0, result.index);
+        var suffix = text.substr(result.index + match.length);
+        text = prefix 
+          + '<span style="background:#ff0;">'
+					+ match
+					+ '</span>'
+					+ suffix;
 
-      elRes.innerHTML = el;
+
+      };
+      elRes.innerHTML = text;
 
     }
 
