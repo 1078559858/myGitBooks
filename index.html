@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,5 +11,184 @@
         window.location.href = './books/catalogue/book/index.html'
 		//window.location.href = './books/catalogui/index.html'
     </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文章稿纸</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    display: flex;
+  }
+  .editor {
+    flex: 1;
+    margin-right: 20px;
+  }
+  .manuscript {
+    flex: none;
+    width: 830px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-right: 300px;
+  }
+  .grid-cell {
+    width: 30px; /* 调整每个格子的宽度 */
+    height: 30px; /* 调整每个格子的高度 */
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px; /* 调整每行之间的间距 */
+  }
+  .grid-cell.space {
+    visibility: hidden;
+  }
+  .tooltip {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    padding: 5px;
+    border: 1px solid #ccc;
+    z-index: 1;
+    display: none;
+  }
+
+/* 使用 nth-child 选择器为每隔 100 到 100 个 grid-cell 添加样式 */
+.gline{
+  border-bottom: 2px solid green;
+}
+
+  .tip {
+    position: absolute;
+    right:300px;
+  }
+
+  textarea {
+    width: 356px;
+    height: 500px;
+  }
+</style>
+</head>
+<body>
+  <div class="editor">
+    <textarea id="article" rows="10" cols="25" placeholder="输入你的文章..."></textarea>
+  </div>
+  <div class="manuscript" id="manuscript">
+  </div>
+
+  <script>
+    const Utf8ToGb2312 = function(str1) {
+      var substr = "";
+      var a = "";
+      var b = "";
+      var c = "";
+      var i = -1;
+      i = str1.indexOf("%");
+      if (i == -1) {
+        return str1;
+      }
+      while (i != -1) {
+        if (i < 3) {
+            substr = substr + str1.substr(0, i - 1);
+            str1 = str1.substr(i + 1, str1.length - i);
+            a = str1.substr(0, 2);
+            str1 = str1.substr(2, str1.length - 2);
+            if (parseInt("0x" + a) & 0x80 == 0) {
+                substr = substr + String.fromCharCode(parseInt("0x" + a));
+            } else if (parseInt("0x" + a) & 0xE0 == 0xC0) { //two byte
+                b = str1.substr(1, 2);
+                str1 = str1.substr(3, str1.length - 3);
+                var widechar = (parseInt("0x" + a) & 0x1F) << 6;
+                widechar = widechar | (parseInt("0x" + b) & 0x3F);
+                substr = substr + String.fromCharCode(widechar);
+            } else {
+                b = str1.substr(1, 2);
+                str1 = str1.substr(3, str1.length - 3);
+                c = str1.substr(1, 2);
+                str1 = str1.substr(3, str1.length - 3);
+                var widechar = (parseInt("0x" + a) & 0x0F) << 12;
+                widechar = widechar | ((parseInt("0x" + b) & 0x3F) << 6);
+                widechar = widechar | (parseInt("0x" + c) & 0x3F);
+                substr = substr + String.fromCharCode(widechar);
+            }
+        } else {
+          substr = substr + str1.substring(0, i);
+          str1 = str1.substring(i);
+        }
+        i = str1.indexOf("%");
+      }
+
+      return substr + str1;
+    }
+    
+  var Utf8 = Utf8ToGb2312("你aaa好aaaaa");
+
+    const articleInput = document.getElementById('article');
+    const manuscriptDiv = document.getElementById('manuscript');
+
+    articleInput.addEventListener('input', updateManuscript);
+
+    const empty = 20 * 25;
+
+    function updateManuscript() {
+      let articleText = (articleInput.value);
+      let characters = [];
+
+      // 将输入的文本按字符分割
+      for (let i = 0; i < empty; i++) {
+        let char = i < articleText.length ? articleText.charAt(i) : ' ';
+        if (char === '\n') {
+          const len = 25 - characters.length % 25;
+          let _i = 0;
+          for(; _i < len; _i++) {
+            characters.push(' '); // 保留换行符
+          }
+
+          // i+= _i - 1;
+        } 
+        else {
+          characters.push(char); // 忽略空格
+        }
+      }
+
+      let manuscriptHTML = '';
+      let charCount = 0;
+      characters.forEach(char => {
+        charCount++;
+        if (char === '\n') {
+          manuscriptHTML += `<div class="grid-cell space ${charCount % 100 > 75 ? 'gline': ''}"></div><br>`; // 换行时增加空行
+          // charCount = 0; // 重置字符计数
+        } else {
+          manuscriptHTML += `<div class="grid-cell ${charCount % 100 > 75 || charCount % 100 === 0? 'gline': ''}">${char}</div>`;
+          // charCount++;
+        }
+
+        // 在每行的第 25 个格子后增加空格
+        if (charCount % 100 === 0) {
+          manuscriptHTML += `<div class="tip" style='top:${Math.floor(charCount/100)*150}px'>${charCount}字</div>`;
+        }
+      });
+
+      manuscriptDiv.innerHTML = manuscriptHTML;
+    }
+
+    updateManuscript();
+  </script>
 </body>
 </html>
