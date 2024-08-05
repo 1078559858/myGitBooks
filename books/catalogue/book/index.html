@@ -243,7 +243,7 @@
 
  -->
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -317,6 +317,7 @@
 <body>
   <div class="editor">
     <textarea id="article" rows="10" cols="25" placeholder="输入你的文章..."></textarea>
+    <div id="total"></div>
   </div>
   <div class="manuscript" id="manuscript">
   </div>
@@ -370,6 +371,7 @@
 
     const articleInput = document.getElementById('article');
     const manuscriptDiv = document.getElementById('manuscript');
+    const total = document.getElementById('total');
 
     articleInput.addEventListener('input', updateManuscript);
 
@@ -378,9 +380,12 @@
     function updateManuscript() {
       let articleText = (articleInput.value);
       let characters = [];
+      let _total = 0;
 
       // 将输入的文本按字符分割
       for (let i = 0; i < empty; i++) {
+        const isfull = i < articleText.length;
+
         let char = i < articleText.length ? articleText.charAt(i) : ' ';
         if (char === '\n') {
           const len = 25 - characters.length % 25;
@@ -389,10 +394,17 @@
             characters.push(' '); // 保留换行符
           }
 
+          if(isfull) {
+            _total += len;
+          }
+
           // i+= _i - 1;
         } 
         else {
           characters.push(char); // 忽略空格
+          if(isfull) {
+            _total += 1;
+          }
         }
       }
 
@@ -415,9 +427,12 @@
       });
 
       manuscriptDiv.innerHTML = manuscriptHTML;
+
+      total.innerHTML = `共${_total}字`;
     }
 
     updateManuscript();
   </script>
 </body>
 </html>
+
