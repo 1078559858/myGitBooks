@@ -274,6 +274,9 @@
  
      margin-right: 300px;
      position: relative;
+
+     height: 800px;
+     overflow-y: scroll;
    }
    .grid-cell {
      width: 30px; /* 调整每个格子的宽度 */
@@ -359,7 +362,7 @@
  
      articleInput.addEventListener('input', updateManuscript);
  
-     const empty = 20 * 25;
+     const empty = 50 * 25;
  
      function updateManuscript() {
        let articleText = (articleInput.value);
