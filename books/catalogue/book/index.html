@@ -336,7 +336,7 @@
    </div>
    <div>
     <div>
-      <Button onclick="hiddenFn()">隐藏border</Button>
+      <Button onclick="hiddenFn()" title="<div>11</div>">隐藏border</Button>
     </div>
     <div class="manuscript" id="manuscript">
     </div>
@@ -374,7 +374,19 @@
          const isfull = i < articleText.length;
  
          let char = i < articleText.length ? articleText.charAt(i) : ' ';
-         if (char === '\n') {
+         if(char === '$') {
+          char = articleText.slice(i + 1, articleText.indexOf('$', i + 1));
+          console.log(char, articleText, articleText.indexOf('$', i + 1));
+
+          i+= char.length + 1;
+
+          characters.push(char); // 忽略空格
+
+          if(isfull) {
+             _total += 1;
+           }
+         }
+         else if (char === '\n') {
            const len = 25 - characters.length % 25;
            let _i = 0;
            for(; _i < len; _i++) {
